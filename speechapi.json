@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "5bc92fdb-f63c-4139-8a5f-ea63c7410540",
+		"name": "MN Speech API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create test user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.104.34.197:3000/user/testUser",
+					"protocol": "http",
+					"host": [
+						"172",
+						"104",
+						"34",
+						"197"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"testUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"\",\n    \"password\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://172.104.34.197:3000/user/forgotToken",
+					"protocol": "http",
+					"host": [
+						"172",
+						"104",
+						"34",
+						"197"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"forgotToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Text to speech",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjAwMzYzMjQ5fQ.H3llpsIaxSDRUUKofUwX2jhk-roT2riL-WDvjB-WqSw",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"txt\": \"Сайн уу?\",\n    \"voice\": \"tsevelmaa\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://172.104.34.197:3000/tts",
+					"protocol": "http",
+					"host": [
+						"172",
+						"104",
+						"34",
+						"197"
+					],
+					"port": "3000",
+					"path": [
+						"tts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get text to speech history by page",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjAwMzYzMjQ5fQ.H3llpsIaxSDRUUKofUwX2jhk-roT2riL-WDvjB-WqSw",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.104.34.197:3000/tts/:page",
+					"protocol": "http",
+					"host": [
+						"172",
+						"104",
+						"34",
+						"197"
+					],
+					"port": "3000",
+					"path": [
+						"tts",
+						":page"
+					],
+					"variable": [
+						{
+							"key": "page",
+							"value": "0",
+							"description": "Number"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get WAV file",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.104.34.197:3000/tts/:wavFIleName",
+					"protocol": "http",
+					"host": [
+						"172",
+						"104",
+						"34",
+						"197"
+					],
+					"port": "3000",
+					"path": [
+						"tts",
+						":wavFIleName"
+					],
+					"variable": [
+						{
+							"key": "wavFIleName",
+							"value": "46693d40-f90b-11ea-a227-a519118f5f0d.mp3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
